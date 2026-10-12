@@ -1,0 +1,1341 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waterbom Tirta Indah Majalengka</title>
+
+<style>
+:root {
+    color-scheme: light dark;
+    --navy: #073b58;
+    --blue: #087eaa;
+    --cyan: #42d4e8;
+    --mint: #b8f3e4;
+    --sun: #ffca69;
+    --paper: light-dark(#f7fcff, #071d2a);
+    --ink: light-dark(#12354a, #effaff);
+    --muted: light-dark(#5a7888, #a8c2d0);
+    --card: light-dark(#ffffff, #102c3b);
+    --line: light-dark(#dcecf2, #244657);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site {
+    min-height: 100vh;
+    background: var(--paper);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 18px clamp(20px, 6vw, 88px);
+    position: relative;
+    z-index: 2;
+    background: light-dark(rgba(255,255,255,.88), rgba(7,29,42,.92));
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 850;
+    letter-spacing: -.04em;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #2cd4dd, #087eaa);
+    color: white;
+}
+
+.brand small {
+    display: block;
+    letter-spacing: .12em;
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.nav a:hover {
+    color: var(--blue);
+}
+
+.nav .nav-cta {
+    padding: 12px 17px;
+    border-radius: 99px;
+    background: var(--navy);
+    color: white;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 590px;
+    display: grid;
+    grid-template-columns: 1fr .95fr;
+    align-items: center;
+    padding: 66px clamp(20px, 6vw, 88px) 78px;
+    background: linear-gradient(130deg, #063a57, #087fa6 56%, #39cbd7);
+    color: white;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 590px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ffffff55;
+    background: #ffffff13;
+    padding: 8px 13px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.eyebrow i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sun);
+}
+
+.hero h1 {
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: .99;
+    letter-spacing: -.065em;
+    margin: 25px 0 20px;
+    max-width: 600px;
+}
+
+.hero h1 span {
+    color: #9df5ef;
+}
+
+.hero p {
+    max-width: 470px;
+    line-height: 1.8;
+    color: #d8f5ff;
+    font-size: 15px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 99px;
+    padding: 14px 21px;
+    font-weight: 800;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: white;
+    color: #07415e;
+}
+
+.btn-ghost {
+    color: white;
+    border: 1px solid #ffffff75;
+    background: #ffffff12;
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 38px;
+    color: #d5f5fb;
+    font-size: 12px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatars span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #087fa6;
+    background: linear-gradient(145deg, #ffe2aa, #ff9469);
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    margin-left: -6px;
+}
+
+.avatars span:first-child {
+    margin-left: 0;
+}
+
+/* Ilustrasi kolam renang */
+.hero-art {
+    position: relative;
+    z-index: 1;
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene {
+    width: min(100%, 490px);
+    aspect-ratio: 1.05;
+    position: relative;
+    filter: drop-shadow(0 22px 28px #002d4433);
+}
+
+.scene .sun {
+    position: absolute;
+    right: 13%;
+    top: 5%;
+    width: 75px;
+    height: 75px;
+    background: #ffcf75;
+    border-radius: 50%;
+}
+
+.palm {
+    position: absolute;
+    left: 12%;
+    top: 13%;
+    width: 100px;
+    height: 170px;
+    z-index: 2;
+}
+
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 46px;
+    width: 13px;
+    height: 124px;
+    background: linear-gradient(90deg, #915b35, #e0a15d);
+    border-radius: 50% 50% 10px 10px;
+    transform: rotate(7deg);
+}
+
+.leaf {
+    position: absolute;
+    width: 75px;
+    height: 24px;
+    background: #53d5a2;
+    border-radius: 100% 0 100% 0;
+    transform-origin: 100% 50%;
+    left: 3px;
+    top: 28px;
+}
+
+.leaf.l1 {
+    transform: rotate(-26deg);
+}
+
+.leaf.l2 {
+    transform: rotate(-65deg);
+    left: 0;
+    top: 7px;
+}
+
+.leaf.l3 {
+    transform: rotate(18deg);
+    left: 42px;
+    top: 5px;
+}
+
+.leaf.l4 {
+    transform: rotate(48deg);
+    left: 43px;
+    top: 34px;
+}
+
+.slide {
+    position: absolute;
+    right: 13%;
+    top: 13%;
+    width: 205px;
+    height: 224px;
+}
+
+.slide-support {
+    position: absolute;
+    right: 18px;
+    top: 95px;
+    width: 16px;
+    height: 170px;
+    background: #f9bb62;
+    transform: rotate(-3deg);
+    border-radius: 10px;
+}
+
+.slide-track {
+    position: absolute;
+    left: 3px;
+    top: 9px;
+    width: 170px;
+    height: 140px;
+    border: 18px solid #ffcc70;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 0 90px 0 0;
+    transform: rotate(2deg);
+}
+
+.slide-track:after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 90px;
+    right: -18px;
+    top: 121px;
+    border-right: 18px solid #ffcc70;
+    border-bottom: 18px solid #ffcc70;
+    border-radius: 0 0 45px 0;
+    transform: rotate(-8deg);
+}
+
+.pool {
+    position: absolute;
+    left: 7%;
+    right: 3%;
+    bottom: 7%;
+    height: 38%;
+    background: linear-gradient(180deg, #76f0ee, #17a9d1);
+    border-radius: 48% 52% 22% 24% / 24% 26% 25% 24%;
+    transform: rotate(-4deg);
+    box-shadow: inset 0 9px 0 #d2ffff65, 0 17px 0 #04567c;
+}
+
+.wave {
+    position: absolute;
+    height: 13px;
+    width: 76%;
+    left: 11%;
+    top: 35%;
+    border-top: 4px solid #d6ffffa8;
+    border-radius: 50%;
+    transform: rotate(-3deg);
+}
+
+.wave.w2 {
+    top: 57%;
+    left: 21%;
+    width: 60%;
+    border-color: #ffffff85;
+}
+
+.tube {
+    position: absolute;
+    left: 26%;
+    bottom: 18%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 21px solid #ff8d74;
+    transform: rotate(-18deg);
+}
+
+.tube:after {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border-radius: 50%;
+    background: #21b9d8;
+}
+
+.spark {
+    position: absolute;
+    font-size: 27px;
+    color: #fff3be;
+}
+
+.s1 {
+    right: 5%;
+    top: 34%;
+}
+
+.s2 {
+    left: 4%;
+    top: 44%;
+    font-size: 20px;
+}
+
+.s3 {
+    right: 19%;
+    bottom: 10%;
+    font-size: 18px;
+}
+
+.float-card {
+    position: absolute;
+    right: 0;
+    bottom: 4%;
+    background: white;
+    color: #17455a;
+    border-radius: 18px;
+    padding: 15px 18px;
+    box-shadow: 0 15px 35px #00364a30;
+    transform: rotate(3deg);
+}
+
+.float-card b {
+    display: block;
+    font-size: 13px;
+}
+
+.float-card small {
+    color: #6a8a99;
+    font-size: 10px;
+}
+
+.float-card strong {
+    color: #0787a7;
+    font-size: 19px;
+}
+
+/* Statistik */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 clamp(20px, 6vw, 88px);
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+}
+
+.stat {
+    padding: 22px 24px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 10px 28px #073b5810;
+}
+
+.stat strong {
+    display: block;
+    font-size: 24px;
+    letter-spacing: -.04em;
+    color: var(--blue);
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* Bagian konten */
+.section {
+    padding: 86px clamp(20px, 6vw, 88px);
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.kicker {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--blue);
+}
+
+h2 {
+    font-size: clamp(30px, 4vw, 45px);
+    letter-spacing: -.055em;
+    line-height: 1.08;
+    margin: 10px 0 0;
+}
+
+.section-head p {
+    max-width: 380px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Kartu wahana */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 35px #073b5815;
+}
+
+.card-art {
+    height: 195px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(140deg, #c0f8ed, #3acbd8);
+}
+
+.card-art.blue {
+    background: linear-gradient(140deg, #8be7f5, #0780b5);
+}
+
+.card-art.orange {
+    background: linear-gradient(140deg, #ffe0a0, #ff9a7a);
+}
+
+.mini-pool {
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    bottom: -28%;
+    height: 75%;
+    background: #0ba9cf;
+    border-radius: 50% 50% 0 0;
+    box-shadow: inset 0 10px 0 #d5ffff88;
+}
+
+.mini-slide {
+    position: absolute;
+    width: 160px;
+    height: 110px;
+    border: 15px solid #ffb85c;
+    border-left: 0;
+    border-bottom: 0;
+    border-radius: 0 90px 0 0;
+    left: 30%;
+    top: 18%;
+    transform: rotate(8deg);
+}
+
+.mini-slide:after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 88px;
+    width: 65px;
+    height: 55px;
+    border-right: 15px solid #ffb85c;
+    border-bottom: 15px solid #ffb85c;
+    border-radius: 0 0 30px 0;
+}
+
+.mini-tube {
+    position: absolute;
+    width: 87px;
+    height: 87px;
+    border: 18px solid #ff8e79;
+    border-radius: 50%;
+    left: 20%;
+    bottom: 13%;
+    transform: rotate(-18deg);
+}
+
+.mini-tube:after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    background: #27c3d7;
+    border-radius: 50%;
+}
+
+.family {
+    position: absolute;
+    left: 25%;
+    bottom: 12%;
+    font-size: 54px;
+}
+
+.sun-small {
+    position: absolute;
+    right: 15%;
+    top: 14%;
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+    background: #ffcf75;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.card-body h3 {
+    margin: 0 0 9px;
+    font-size: 18px;
+    letter-spacing: -.03em;
+}
+
+.card-body p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 7px 10px;
+    background: light-dark(#e8f9fb, #123b4b);
+    color: var(--blue);
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+/* Informasi kunjungan */
+.visit {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 34px;
+    align-items: center;
+    background: linear-gradient(135deg, #e5fbf8, #d9f4ff);
+    color: #12354a;
+    border-radius: 28px;
+    padding: clamp(25px, 5vw, 55px);
+    overflow: hidden;
+}
+
+.visit h2 {
+    max-width: 470px;
+}
+
+.visit p {
+    color: #537485;
+    line-height: 1.8;
+    font-size: 14px;
+    max-width: 480px;
+}
+
+.visit-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.visit-item {
+    background: #ffffffa8;
+    border: 1px solid #c6e7ed;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.visit-item b {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.visit-item span {
+    font-size: 12px;
+    color: #638494;
+}
+
+.map-card {
+    min-height: 290px;
+    border-radius: 22px;
+    background: linear-gradient(140deg, #087eaa, #2ac4cf);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.pin {
+    font-size: 43px;
+}
+
+.map-card h3 {
+    margin: 12px 0 7px;
+    font-size: 21px;
+}
+
+.map-card p {
+    color: #e1fbff;
+    font-size: 12px;
+    margin: 0;
+}
+
+.map-button {
+    margin-top: 18px;
+    background: white;
+    color: #075477;
+    border: 0;
+    border-radius: 99px;
+    padding: 11px 16px;
+    font-size: 11px;
+    font-weight: 850;
+    cursor: pointer;
+}
+
+/* Galeri foto */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.photo-gallery img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+}
+
+/* Video */
+.video-section {
+    padding: 0 clamp(20px, 6vw, 88px) 80px;
+}
+
+.video-box {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #073b58, #087eaa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: white;
+}
+
+.video-box p {
+    color: #d8f5ff;
+    line-height: 1.7;
+    font-size: 14px;
+    max-width: 460px;
+    margin: 0 auto 22px;
+}
+
+.video-button {
+    display: inline-block;
+    background: white;
+    color: #075477;
+    padding: 14px 22px;
+    border-radius: 99px;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/* Pesan penutup */
+.quote {
+    text-align: center;
+    padding: 76px 20px 84px;
+    background: light-dark(#eafaff, #0c2938);
+}
+
+.quote-mark {
+    font-size: 48px;
+    color: #20b9c8;
+    line-height: .8;
+}
+
+.quote blockquote {
+    max-width: 730px;
+    margin: 18px auto;
+    font-size: clamp(21px, 3vw, 31px);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -.04em;
+}
+
+.quote p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+footer {
+    padding: 30px clamp(20px, 6vw, 88px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: var(--muted);
+    font-size: 11px;
+    border-top: 1px solid var(--line);
+}
+
+footer b {
+    color: var(--ink);
+}
+
+/* Tampilan HP */
+@media (max-width: 800px) {
+    .nav {
+        gap: 12px;
+    }
+
+    .nav a:not(.nav-cta) {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+    }
+
+    .hero-art {
+        min-height: 320px;
+        margin-top: 10px;
+    }
+
+    .scene {
+        max-width: 400px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-top: -22px;
+    }
+
+    .stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .section {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head p {
+        margin-top: 14px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-art {
+        height: 220px;
+    }
+
+    .visit {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-list {
+        grid-template-columns: 1fr;
+    }
+
+    .map-card {
+        min-height: 240px;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-gallery img {
+        height: 250px;
+    }
+
+    .video-section {
+        padding-bottom: 60px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1050px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cards {
+        gap: 12px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="site" id="home">
+
+<header class="topbar">
+    <a class="brand" href="#home">
+        <span class="brand-mark">≋</span>
+        <span>
+            WATERBOM
+            <small>TIRTA INDAH · MAJALENGKA</small>
+        </span>
+    </a>
+
+    <nav class="nav">
+        <a href="#tentang">Tentang</a>
+        <a href="#wahana">Wahana</a>
+        <a href="#kunjungan">Kunjungan</a>
+        <a class="nav-cta" href="#kunjungan">Rencanakan liburan ↗</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- HALAMAN UTAMA -->
+<section class="hero">
+    <div class="hero-copy">
+        <div class="eyebrow">
+            <i></i>
+            Liburan seru di Majalengka
+        </div>
+
+        <h1>
+            Saatnya basah-basahan,
+            <span>lupakan rutinitas.</span>
+        </h1>
+
+        <p>
+            Temukan keseruan bermain air, bersantai, dan menghabiskan
+            waktu bersama orang-orang tersayang di Waterbom Tirta Indah.
+        </p>
+
+        <div class="actions">
+            <a class="btn btn-light" href="#wahana">
+                Jelajahi wahana ↓
+            </a>
+
+            <a class="btn btn-ghost" href="#kunjungan">
+                Info kunjungan ↗
+            </a>
+        </div>
+
+        <div class="hero-note">
+            <div class="avatars">
+                <span>☀</span>
+                <span>🌊</span>
+                <span>☺</span>
+            </div>
+
+            <span>
+                Tempat untuk tertawa, bermain, dan bikin kenangan.
+            </span>
+        </div>
+    </div>
+
+    <!-- Ilustrasi wisata air -->
+    <div class="hero-art">
+        <div class="scene">
+            <div class="sun"></div>
+
+            <div class="palm">
+                <div class="trunk"></div>
+                <div class="leaf l1"></div>
+                <div class="leaf l2"></div>
+                <div class="leaf l3"></div>
+                <div class="leaf l4"></div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-track"></div>
+                <div class="slide-support"></div>
+            </div>
+
+            <div class="pool">
+                <div class="wave"></div>
+                <div class="wave w2"></div>
+            </div>
+
+            <div class="tube"></div>
+            <div class="spark s1">✦</div>
+            <div class="spark s2">✧</div>
+            <div class="spark s3">✦</div>
+
+            <div class="float-card">
+                <small>WAKTUNYA</small>
+                <b>Water fun!</b>
+                <strong>∞ seru</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATISTIK -->
+<div class="stats">
+    <div class="stat">
+        <strong>🌊 Main air</strong>
+        <span>Segarkan hari liburmu</span>
+    </div>
+
+    <div class="stat">
+        <strong>👨‍👩‍👧‍👦 Bareng keluarga</strong>
+        <span>Seru dinikmati bersama</span>
+    </div>
+
+    <div class="stat">
+        <strong>📍 Majalengka</strong>
+        <span>Destinasi rekreasi lokal</span>
+    </div>
+</div>
+
+<!-- TENTANG DAN WAHANA -->
+<section class="section" id="tentang">
+    <div class="section-head">
+        <div>
+            <div class="kicker">Tentang destinasi</div>
+            <h2>
+                Liburan sederhana,<br>
+                kenangan luar biasa.
+            </h2>
+        </div>
+
+        <p>
+            Waterbom Tirta Indah menjadi ide destinasi untuk menikmati
+            waktu santai dengan suasana bermain air. Ajak teman, pasangan,
+            atau keluarga untuk membuat hari libur lebih berwarna.
+        </p>
+    </div>
+
+    <div class="cards" id="wahana">
+
+        <article class="card">
+            <div class="card-art">
+                <div class="sun-small"></div>
+                <div class="mini-slide"></div>
+                <div class="mini-pool"></div>
+                <div class="mini-tube"></div>
+            </div>
+
+            <div class="card-body">
+                <h3>Wahana air</h3>
+                <p>
+                    Isi hari dengan keseruan bermain air dan mencoba
+                    wahana yang tersedia di lokasi.
+                </p>
+                <span class="tag">SERU & MENYEGARKAN</span>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-art blue">
+                <div class="sun-small"></div>
+                <div class="mini-pool"></div>
+                <div class="family">☀️</div>
+
+                <div class="mini-tube"
+                     style="left:56%;bottom:20%;border-color:#fff">
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h3>Waktu bersama</h3>
+                <p>
+                    Jadikan momen kumpul bareng teman dan keluarga
+                    terasa lebih menyenangkan.
+                </p>
+                <span class="tag">QUALITY TIME</span>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-art orange">
+                <div class="sun-small"></div>
+
+                <div class="mini-pool" style="background:#14b6d0"></div>
+
+                <div class="family">🏖️</div>
+
+                <div class="mini-tube"
+                     style="left:58%;bottom:15%;border-color:#55d3a3">
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h3>Rehat sejenak</h3>
+                <p>
+                    Jauhkan diri sebentar dari rutinitas dan nikmati
+                    suasana liburan yang ceria.
+                </p>
+                <span class="tag">WAKTUNYA HEALING</span>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- INFORMASI KUNJUNGAN -->
+<section class="section" id="kunjungan" style="padding-top:0">
+    <div class="visit">
+
+        <div>
+            <div class="kicker">Rencanakan kunjungan</div>
+
+            <h2>Siapkan hari liburmu dari sekarang.</h2>
+
+            <p>
+                Yuk, rencanakan liburanmu! Berikut informasi harga tiket
+                dan jam operasional berdasarkan informasi yang tersedia.
+                Harga dapat berubah, jadi pastikan kembali kepada
+                pengelola sebelum berkunjung.
+            </p>
+
+            <div class="visit-list">
+
+                <div class="visit-item">
+                    <b>🎟️ Tiket dewasa · Senin–Jumat</b>
+                    <span>Rp20.000 per orang</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>🎟️ Tiket anak · Senin–Jumat</b>
+                    <span>Rp15.000 per anak</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>🎉 Tiket dewasa · Weekend/libur</b>
+                    <span>Rp25.000 per orang</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>🎉 Tiket anak · Weekend/libur</b>
+                    <span>Rp20.000 per anak</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>🕘 Jam operasional</b>
+                    <span>Setiap hari, 08.00–16.00 WIB</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>📍 Lokasi</b>
+                    <span>Waterbom Tirta Indah, Rajagaluh, Majalengka</span>
+                </div>
+
+                <div class="visit-item">
+                    <b>☎️ Kontak WhatsApp</b>
+                    <span>
+                        <a href="https://wa.me/6289504756490"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           style="color:#087eaa;font-weight:800">
+                            Hubungi pengelola ↗
+                        </a>
+                    </span>
+                </div>
+
+            </div>
+
+            <a class="btn btn-light"
+               style="background:#087eaa;color:#fff"
+               href="https://www.google.com/maps/search/?api=1&query=Waterbom+Tirta+Indah+Majalengka"
+               target="_blank"
+               rel="noopener noreferrer">
+                Lihat lokasi di Google Maps ↗
+            </a>
+        </div>
+
+        <div class="map-card">
+            <div>
+                <div class="pin">📍</div>
+                <h3>Waterbom Tirta Indah</h3>
+                <p>Rajagaluh, Majalengka, Jawa Barat</p>
+
+                <a class="map-button"
+                   href="https://www.google.com/maps/search/?api=1&query=Waterbom+Tirta+Indah+Majalengka"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="display:inline-block">
+                    Buka petunjuk lokasi ↗
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALERI FOTO -->
+<section class="section" id="galeri"
+         style="padding-top:0;padding-bottom:45px">
+
+    <div class="section-head">
+        <div>
+            <div class="kicker">Galeri lokasi</div>
+            <h2>Lihat suasana Tirta Indah.</h2>
+        </div>
+
+        <p>
+            Foto kolam renang dan suasana di sekitar lokasi.
+        </p>
+    </div>
+
+    <div class="photo-gallery">
+
+        <!-- FOTO PERTAMA: SUASANA ALAM DAN JEMBATAN -->
+        <img
+            src="images/foto-jembatan.jpg"
+            alt="Suasana alam dan jembatan di Waterbom Tirta Indah"
+            onerror="this.onerror=null;this.alt='Foto jembatan tidak ditemukan. Periksa folder images.'"
+        >
+
+        <!-- FOTO KEDUA: KOLAM RENANG -->
+        <img
+            src="images/foto-kolam.jpg"
+            alt="Foto kolam renang Waterbom Tirta Indah"
+            onerror="this.onerror=null;this.alt='Foto kolam tidak ditemukan. Periksa folder images.'"
+        >
+
+    </div>
+
+    <p style="font-size:12px;color:var(--muted);margin-top:12px">
+        Pastikan file foto-jembatan.jpg dan foto-kolam.jpg disimpan
+        di dalam folder images yang sejajar dengan index.html.
+    </p>
+</section>
+
+<!-- VIDEO WISATA -->
+<section class="video-section" id="video">
+    <div class="section-head">
+        <div>
+            <div class="kicker">Video wisata</div>
+            <h2>Intip keseruannya lewat video.</h2>
+        </div>
+
+        <p>Video YouTube Waterbom Tirta Indah Majalengka.</p>
+    </div>
+
+    <div class="video-box">
+        <div>
+            <div style="font-size:54px;margin-bottom:10px">▶</div>
+
+            <h3 style="font-size:clamp(20px,3vw,30px);margin:0 0 10px">
+                Tonton Video Waterbom Tirta Indah
+            </h3>
+
+            <p>
+                Klik tombol di bawah untuk membuka video di YouTube.
+                Cara ini menghindari error pemutar video di halaman lokal.
+            </p>
+
+            <a class="video-button"
+               href="https://www.youtube.com/watch?v=vcvzcXnyb2E"
+               target="_blank"
+               rel="noopener noreferrer">
+                ▶ Buka video di YouTube ↗
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PESAN PENUTUP -->
+<section class="quote">
+    <div class="quote-mark">“</div>
+
+    <blockquote>
+        Karena momen terbaik sering dimulai dari hal sederhana:
+        bermain air dan tertawa bersama.
+    </blockquote>
+
+    <p>WATERBOM TIRTA INDAH · MAJALENGKA</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        <b>WATERBOM TIRTA INDAH</b><br>
+        Konsep website promosi wisata
+    </div>
+
+    <div>
+        © 2026 · Demo desain HTML · Informasi wisata perlu diverifikasi
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
