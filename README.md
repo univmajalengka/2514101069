@@ -1,2 +1,2 @@
 # Identitas
-Nama : Brian Nurzan Abdillah
+**NAMA** : Brian Nurzan Abdillah
