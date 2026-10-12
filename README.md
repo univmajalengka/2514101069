@@ -9,6 +9,6 @@
 
 - **2514101069/**
   - **PABW/**
-    - **img/**
+    - **images/**
     - `index.html`
   - `README.md`
