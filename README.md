@@ -9,7 +9,7 @@
 
 - **2514101069/**
   - **PABW/**
-    - **Tugas 1**
+    - **Tugas 1/**
     - **images/**
     - `index.html`
   - `README.md`
