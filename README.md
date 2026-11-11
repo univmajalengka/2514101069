@@ -12,4 +12,6 @@
     - **Tugas 1/**
     - **images/**
     - `index.html`
+  - **Tugas UTS/**
+    - `Tugas.php`
   - `README.md`
